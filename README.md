@@ -68,10 +68,10 @@ The default implementation uses semantic anchor prototypes. It is intentionally 
 
 ## Setup
 
-Run the following commands from the root of the cloned `Q-Research` repository.
+Run the following commands from the root of the cloned `AI-Macro-Research-Assistant` repository.
 
 ```bash
-cd AI-macro-research
+cd AI-Macro-Research-Assistant
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
