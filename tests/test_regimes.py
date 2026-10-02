@@ -1,6 +1,6 @@
-from src.mapping import CrossAssetMapper
-from src.regimes import RegimeInferer
-from src.schemas import DynamicTheme, MacroAxisVector, ThemeMetrics
+from ai_macro_research_v2.mapping import CrossAssetMapper
+from ai_macro_research_v2.regimes import RegimeInferer
+from ai_macro_research_v2.schemas import DynamicTheme, MacroAxisVector, ThemeMetrics
 
 
 def _stagflation_theme() -> DynamicTheme:

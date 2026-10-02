@@ -2,8 +2,8 @@ from datetime import UTC, datetime, timedelta
 
 import numpy as np
 
-from src.clustering import ThemeCandidate
-from src.history import ThemeHistoryStore
+from ai_macro_research_v2.clustering import ThemeCandidate
+from ai_macro_research_v2.history import ThemeHistoryStore
 
 
 def _candidate(centroid: list[float]) -> ThemeCandidate:

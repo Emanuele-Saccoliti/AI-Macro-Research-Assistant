@@ -6,8 +6,8 @@ from dataclasses import dataclass
 import numpy as np
 from numpy.typing import NDArray
 
-from src.embeddings import FloatMatrix, cosine, normalize_rows
-from src.schemas import NormalizedEvent
+from ai_macro_research_v2.embeddings import FloatMatrix, cosine, normalize_rows
+from ai_macro_research_v2.schemas import NormalizedEvent
 
 
 @dataclass(slots=True)

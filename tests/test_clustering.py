@@ -1,7 +1,7 @@
 import numpy as np
 
-from src.clustering import DynamicThemeClusterer
-from src.schemas import NormalizedEvent
+from ai_macro_research_v2.clustering import DynamicThemeClusterer
+from ai_macro_research_v2.schemas import NormalizedEvent
 
 
 def _event(item_id: int, summary: str, source: str = "source") -> NormalizedEvent:

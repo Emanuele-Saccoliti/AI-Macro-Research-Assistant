@@ -4,7 +4,7 @@ import json
 import re
 from pathlib import Path
 
-from src.schemas import DynamicResearchReport
+from ai_macro_research_v2.schemas import DynamicResearchReport
 
 
 def slugify(value: str, max_length: int = 72) -> str:

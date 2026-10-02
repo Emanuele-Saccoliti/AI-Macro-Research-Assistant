@@ -8,7 +8,7 @@ from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 from pydantic import BaseModel, Field
 
-from src.schemas import NewsItem
+from ai_macro_research_v2.schemas import NewsItem
 
 
 class RetrievalBundle(BaseModel):

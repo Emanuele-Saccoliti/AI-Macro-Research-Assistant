@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from src.schemas import AssetImplication, MacroRegime
+from ai_macro_research_v2.schemas import AssetImplication, MacroRegime
 
 ASSET_AXIS_WEIGHTS: dict[str, dict[str, float]] = {
     "Global equities": {

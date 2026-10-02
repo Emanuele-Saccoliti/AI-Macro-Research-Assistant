@@ -1,7 +1,7 @@
 from datetime import UTC, datetime
 
-from src.reporting import report_to_markdown
-from src.schemas import (
+from ai_macro_research_v2.reporting import report_to_markdown
+from ai_macro_research_v2.schemas import (
     DynamicResearchReport,
     MacroAxisVector,
     MacroRegime,

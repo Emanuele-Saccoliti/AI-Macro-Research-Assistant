@@ -6,8 +6,8 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 
-from src.config import Settings
-from src.schemas import (
+from ai_macro_research_v2.config import Settings
+from ai_macro_research_v2.schemas import (
     AssetImplication,
     DynamicTheme,
     EventBatch,

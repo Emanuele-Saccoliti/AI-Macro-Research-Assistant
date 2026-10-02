@@ -2,8 +2,6 @@
 
 AI-powered macro research pipeline that combines LLM-based financial news processing with machine learning to identify and classify emerging themes across growth, inflation, monetary policy, liquidity, and risk sentiment. These insights are then aggregated into dynamic state variables for macro-regime monitoring and cross-asset analysis.
 
-The original copied implementation is preserved in `legacy/`.
-
 ## Pipeline
 
 ```text
@@ -50,8 +48,7 @@ The default implementation uses semantic anchor prototypes. It is intentionally 
 
 ```text
 .
-├── legacy/                         # preserved original package files
-├── src/
+├── src/ai_macro_research_v2/
 │   ├── clustering.py               # dynamic event clustering
 │   ├── embeddings.py               # hashing or transformer embeddings
 │   ├── history.py                  # theme matching and temporal metrics
@@ -68,10 +65,10 @@ The default implementation uses semantic anchor prototypes. It is intentionally 
 
 ## Setup
 
-Run the following commands from the root of the cloned `AI-Macro-Research-Assistant` repository.
+Run the following commands from the `v2/` directory.
 
 ```bash
-cd AI-Macro-Research-Assistant
+cd v2
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -95,7 +92,7 @@ EMBEDDING_PROVIDER=sentence-transformer
 ## Usage
 
 ```bash
-python -m src \
+python -m ai_macro_research_v2 \
   "US inflation, Fed policy and cross-asset implications" \
   --max-articles 30
 ```
@@ -103,7 +100,7 @@ python -m src \
 Add RSS sources:
 
 ```bash
-python -m src \
+python -m ai_macro_research_v2 \
   "global monetary policy divergence" \
   --feed-url "https://www.federalreserve.gov/feeds/press_all.xml"
 ```
@@ -111,7 +108,7 @@ python -m src \
 Theme history is stored in `data/theme_history.json`. To run without reading or updating it:
 
 ```bash
-python -m src "China growth and commodities" --no-history
+python -m ai_macro_research_v2 "China growth and commodities" --no-history
 ```
 
 ## Outputs

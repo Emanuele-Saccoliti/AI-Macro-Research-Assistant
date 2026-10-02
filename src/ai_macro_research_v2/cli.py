@@ -4,8 +4,8 @@ import argparse
 import sys
 from pathlib import Path
 
-from src.config import get_settings
-from src.workflow import DynamicMacroResearchWorkflow
+from ai_macro_research_v2.config import get_settings
+from ai_macro_research_v2.workflow import DynamicMacroResearchWorkflow
 
 
 def build_parser() -> argparse.ArgumentParser:

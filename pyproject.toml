@@ -3,9 +3,9 @@ requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "macro-research-assistant-extension"
+name = "macro-research-assistant-v2"
 version = "0.2.0"
-description = "Hybrid LLM and NLP/ML pipeline for dynamic macro theme and regime research."
+description = "Advanced LLM and NLP/ML pipeline for dynamic macro theme and regime research."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -31,19 +31,17 @@ dev = [
 ]
 
 [project.scripts]
-macro-research-extension = "src.cli:main"
+macro-research-v2 = "ai_macro_research_v2.cli:main"
 
-[tool.setuptools]
-packages = ["src"]
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-exclude = ["legacy"]
-
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
+pythonpath = ["src"]
 testpaths = ["tests"]

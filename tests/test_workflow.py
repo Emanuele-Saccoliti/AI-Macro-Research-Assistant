@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from src.config import Settings
-from src.embeddings import HashingEmbedder
-from src.retrievers import RetrievalBundle
-from src.schemas import NarrativeDraft, NewsItem, NormalizedEvent
-from src.workflow import DynamicMacroResearchWorkflow
+from ai_macro_research_v2.config import Settings
+from ai_macro_research_v2.embeddings import HashingEmbedder
+from ai_macro_research_v2.retrievers import RetrievalBundle
+from ai_macro_research_v2.schemas import NarrativeDraft, NewsItem, NormalizedEvent
+from ai_macro_research_v2.workflow import DynamicMacroResearchWorkflow
 
 
 class FakeRetriever:

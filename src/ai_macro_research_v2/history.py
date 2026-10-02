@@ -11,9 +11,9 @@ from pathlib import Path
 import numpy as np
 from pydantic import BaseModel, Field
 
-from src.clustering import ThemeCandidate
-from src.embeddings import cosine
-from src.schemas import ThemeMetrics
+from ai_macro_research_v2.clustering import ThemeCandidate
+from ai_macro_research_v2.embeddings import cosine
+from ai_macro_research_v2.schemas import ThemeMetrics
 
 
 class ThemeSnapshot(BaseModel):

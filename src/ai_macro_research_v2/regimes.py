@@ -4,9 +4,9 @@ import math
 
 import numpy as np
 
-from src.clustering import ThemeCandidate
-from src.embeddings import Embedder, cosine, normalize_rows
-from src.schemas import DynamicTheme, MacroAxisVector, MacroRegime
+from ai_macro_research_v2.clustering import ThemeCandidate
+from ai_macro_research_v2.embeddings import Embedder, cosine, normalize_rows
+from ai_macro_research_v2.schemas import DynamicTheme, MacroAxisVector, MacroRegime
 
 AXIS_PROTOTYPES: dict[str, tuple[str, str]] = {
     "growth": (
