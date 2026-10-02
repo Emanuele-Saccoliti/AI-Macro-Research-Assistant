@@ -1,7 +1,7 @@
 import numpy as np
 
-from macro_research_extension.clustering import DynamicThemeClusterer
-from macro_research_extension.schemas import NormalizedEvent
+from src.clustering import DynamicThemeClusterer
+from src.schemas import NormalizedEvent
 
 
 def _event(item_id: int, summary: str, source: str = "source") -> NormalizedEvent:
@@ -36,4 +36,3 @@ def test_clusterer_discovers_two_separated_themes():
     assert len(themes) == 2
     assert sorted(len(theme.event_indices) for theme in themes) == [2, 2]
     assert all(theme.coherence > 0.95 for theme in themes)
-

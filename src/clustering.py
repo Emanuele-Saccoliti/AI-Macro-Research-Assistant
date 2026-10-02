@@ -6,8 +6,8 @@ from dataclasses import dataclass
 import numpy as np
 from numpy.typing import NDArray
 
-from macro_research_extension.embeddings import FloatMatrix, cosine, normalize_rows
-from macro_research_extension.schemas import NormalizedEvent
+from src.embeddings import FloatMatrix, cosine, normalize_rows
+from src.schemas import NormalizedEvent
 
 
 @dataclass(slots=True)
@@ -113,4 +113,3 @@ class DynamicThemeClusterer:
             if len(selected) == 3:
                 break
         return " / ".join(selected).title() or "Unclassified macro theme"
-

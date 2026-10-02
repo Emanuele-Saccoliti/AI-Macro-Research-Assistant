@@ -11,9 +11,9 @@ from pathlib import Path
 import numpy as np
 from pydantic import BaseModel, Field
 
-from macro_research_extension.clustering import ThemeCandidate
-from macro_research_extension.embeddings import cosine
-from macro_research_extension.schemas import ThemeMetrics
+from src.clustering import ThemeCandidate
+from src.embeddings import cosine
+from src.schemas import ThemeMetrics
 
 
 class ThemeSnapshot(BaseModel):
@@ -159,4 +159,3 @@ class ThemeHistoryStore:
             entropy = -sum((count / total) * math.log(count / total) for count in counts.values())
             diversity = entropy / math.log(len(counts))
         return float(np.clip(coverage * diversity, 0.0, 1.0))
-

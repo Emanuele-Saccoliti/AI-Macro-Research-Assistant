@@ -6,8 +6,8 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 
-from macro_research_extension.config import Settings
-from macro_research_extension.schemas import (
+from src.config import Settings
+from src.schemas import (
     AssetImplication,
     DynamicTheme,
     EventBatch,
@@ -140,4 +140,3 @@ class LLMReportNarrator:
                 ),
             }
         )
-

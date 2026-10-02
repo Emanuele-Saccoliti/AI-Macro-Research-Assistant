@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from macro_research_extension.config import Settings
-from macro_research_extension.embeddings import HashingEmbedder
-from macro_research_extension.retrievers import RetrievalBundle
-from macro_research_extension.schemas import NarrativeDraft, NewsItem, NormalizedEvent
-from macro_research_extension.workflow import DynamicMacroResearchWorkflow
+from src.config import Settings
+from src.embeddings import HashingEmbedder
+from src.retrievers import RetrievalBundle
+from src.schemas import NarrativeDraft, NewsItem, NormalizedEvent
+from src.workflow import DynamicMacroResearchWorkflow
 
 
 class FakeRetriever:
@@ -68,4 +68,3 @@ def test_workflow_runs_without_web_or_llm(tmp_path):
     assert report.themes
     assert report.asset_implications
     assert "AgglomerativeClustering" in report.tools_used
-

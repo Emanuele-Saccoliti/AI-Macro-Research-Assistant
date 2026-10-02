@@ -2,8 +2,8 @@ from datetime import UTC, datetime, timedelta
 
 import numpy as np
 
-from macro_research_extension.clustering import ThemeCandidate
-from macro_research_extension.history import ThemeHistoryStore
+from src.clustering import ThemeCandidate
+from src.history import ThemeHistoryStore
 
 
 def _candidate(centroid: list[float]) -> ThemeCandidate:
@@ -57,4 +57,3 @@ def test_history_matches_theme_and_updates_dynamic_metrics(tmp_path):
     assert second_id == theme_id
     assert second_metrics.novelty < 0.01
     assert second_metrics.persistence == 0.4
-

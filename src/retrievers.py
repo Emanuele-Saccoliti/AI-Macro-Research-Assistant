@@ -8,7 +8,7 @@ from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 from pydantic import BaseModel, Field
 
-from macro_research_extension.schemas import NewsItem
+from src.schemas import NewsItem
 
 
 class RetrievalBundle(BaseModel):
@@ -156,4 +156,3 @@ class MacroNewsRetriever:
         )
         tools_used = sorted({tool for bundle in bundles for tool in bundle.tools_used})
         return RetrievalBundle(items=items, tools_used=tools_used)
-

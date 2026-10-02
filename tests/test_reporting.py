@@ -1,7 +1,7 @@
 from datetime import UTC, datetime
 
-from macro_research_extension.reporting import report_to_markdown
-from macro_research_extension.schemas import (
+from src.reporting import report_to_markdown
+from src.schemas import (
     DynamicResearchReport,
     MacroAxisVector,
     MacroRegime,
@@ -28,4 +28,3 @@ def test_markdown_contains_dynamic_sections():
     assert "## Dynamic Themes" in markdown
     assert "## Cross-Asset Research Mapping" in markdown
     assert "## Disclaimer" in markdown
-

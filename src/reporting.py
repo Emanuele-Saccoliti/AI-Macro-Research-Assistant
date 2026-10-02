@@ -4,7 +4,7 @@ import json
 import re
 from pathlib import Path
 
-from macro_research_extension.schemas import DynamicResearchReport
+from src.schemas import DynamicResearchReport
 
 
 def slugify(value: str, max_length: int = 72) -> str:
@@ -126,4 +126,3 @@ def save_report(
         written.append(path)
 
     return written
-

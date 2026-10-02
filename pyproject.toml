@@ -31,10 +31,10 @@ dev = [
 ]
 
 [project.scripts]
-macro-research-extension = "macro_research_extension.cli:main"
+macro-research-extension = "src.cli:main"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools]
+packages = ["src"]
 
 [tool.ruff]
 line-length = 100
@@ -45,5 +45,5 @@ exclude = ["legacy"]
 select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = ["."]
 testpaths = ["tests"]

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from macro_research_extension.schemas import AssetImplication, MacroRegime
+from src.schemas import AssetImplication, MacroRegime
 
 ASSET_AXIS_WEIGHTS: dict[str, dict[str, float]] = {
     "Global equities": {
@@ -74,4 +74,3 @@ class CrossAssetMapper:
             )
 
         return implications
-

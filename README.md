@@ -51,7 +51,7 @@ The default implementation uses semantic anchor prototypes. It is intentionally 
 ```text
 .
 ├── legacy/                         # preserved original package files
-├── src/macro_research_extension/
+├── src/
 │   ├── clustering.py               # dynamic event clustering
 │   ├── embeddings.py               # hashing or transformer embeddings
 │   ├── history.py                  # theme matching and temporal metrics
@@ -95,7 +95,7 @@ EMBEDDING_PROVIDER=sentence-transformer
 ## Usage
 
 ```bash
-python -m macro_research_extension \
+python -m src \
   "US inflation, Fed policy and cross-asset implications" \
   --max-articles 30
 ```
@@ -103,7 +103,7 @@ python -m macro_research_extension \
 Add RSS sources:
 
 ```bash
-python -m macro_research_extension \
+python -m src \
   "global monetary policy divergence" \
   --feed-url "https://www.federalreserve.gov/feeds/press_all.xml"
 ```
@@ -111,7 +111,7 @@ python -m macro_research_extension \
 Theme history is stored in `data/theme_history.json`. To run without reading or updating it:
 
 ```bash
-python -m macro_research_extension "China growth and commodities" --no-history
+python -m src "China growth and commodities" --no-history
 ```
 
 ## Outputs

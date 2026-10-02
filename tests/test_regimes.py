@@ -1,6 +1,6 @@
-from macro_research_extension.mapping import CrossAssetMapper
-from macro_research_extension.regimes import RegimeInferer
-from macro_research_extension.schemas import DynamicTheme, MacroAxisVector, ThemeMetrics
+from src.mapping import CrossAssetMapper
+from src.regimes import RegimeInferer
+from src.schemas import DynamicTheme, MacroAxisVector, ThemeMetrics
 
 
 def _stagflation_theme() -> DynamicTheme:
@@ -37,4 +37,3 @@ def test_regime_and_cross_asset_mapping():
     assert regime.name == "stagflation_pressure"
     assert by_asset["Long-duration government bonds (price)"].direction == "negative"
     assert by_asset["US dollar"].direction == "positive"
-

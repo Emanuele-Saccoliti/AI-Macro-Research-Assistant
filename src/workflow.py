@@ -4,16 +4,16 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from macro_research_extension.clustering import DynamicThemeClusterer, ThemeCandidate
-from macro_research_extension.config import Settings
-from macro_research_extension.embeddings import Embedder, build_embedder
-from macro_research_extension.history import ThemeHistoryData, ThemeHistoryStore
-from macro_research_extension.llm import LLMEventNormalizer, LLMReportNarrator
-from macro_research_extension.mapping import CrossAssetMapper
-from macro_research_extension.regimes import PrototypeMacroMapper, RegimeInferer
-from macro_research_extension.reporting import save_report
-from macro_research_extension.retrievers import MacroNewsRetriever
-from macro_research_extension.schemas import DynamicResearchReport, DynamicTheme
+from src.clustering import DynamicThemeClusterer, ThemeCandidate
+from src.config import Settings
+from src.embeddings import Embedder, build_embedder
+from src.history import ThemeHistoryData, ThemeHistoryStore
+from src.llm import LLMEventNormalizer, LLMReportNarrator
+from src.mapping import CrossAssetMapper
+from src.regimes import PrototypeMacroMapper, RegimeInferer
+from src.reporting import save_report
+from src.retrievers import MacroNewsRetriever
+from src.schemas import DynamicResearchReport, DynamicTheme
 
 
 class DynamicMacroResearchWorkflow:

@@ -4,8 +4,8 @@ import argparse
 import sys
 from pathlib import Path
 
-from macro_research_extension.config import get_settings
-from macro_research_extension.workflow import DynamicMacroResearchWorkflow
+from src.config import get_settings
+from src.workflow import DynamicMacroResearchWorkflow
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -58,4 +58,3 @@ def main(argv: list[str] | None = None) -> int:
     for path in paths:
         print(f"Wrote: {path}")
     return 0
-

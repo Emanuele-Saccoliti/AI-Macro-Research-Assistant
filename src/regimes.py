@@ -4,9 +4,9 @@ import math
 
 import numpy as np
 
-from macro_research_extension.clustering import ThemeCandidate
-from macro_research_extension.embeddings import Embedder, cosine, normalize_rows
-from macro_research_extension.schemas import DynamicTheme, MacroAxisVector, MacroRegime
+from src.clustering import ThemeCandidate
+from src.embeddings import Embedder, cosine, normalize_rows
+from src.schemas import DynamicTheme, MacroAxisVector, MacroRegime
 
 AXIS_PROTOTYPES: dict[str, tuple[str, str]] = {
     "growth": (
@@ -137,4 +137,3 @@ class RegimeInferer:
         if state.risk_sentiment <= -0.25:
             return "risk_off"
         return "mixed_transition"
-
