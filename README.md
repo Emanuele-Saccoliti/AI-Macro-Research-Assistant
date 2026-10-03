@@ -1,4 +1,4 @@
-# AI-powered Macro Research Agent
+# AI-powered Macro Research Assistant
 
 This repository provides an AI research harness that constrains LLM-based interpretation within a deterministic, transparent, and traceable framework.
 
