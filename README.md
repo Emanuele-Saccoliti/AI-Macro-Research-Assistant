@@ -10,19 +10,23 @@ The LLM is used for bounded semantic tasks, primarily event normalization and fi
 ## Pipeline
 
 ```text
+User query
+        ↓
+Deterministic query expansion, retrieval, and deduplication
+        ↓
 Web search and RSS feeds
         ↓
-LLM event normalization and summarization
+LLM event normalization
         ↓
-Text embeddings
+Embeddings, semantic clustering, and dynamic theme discovery
         ↓
-Dynamic clustering of related events
+Semantic macro mapping and theme aggregation
         ↓
-Theme attention, momentum, breadth, novelty, and persistence
+Aggregate macro state
         ↓
-Multi-label mapping to growth, inflation, policy, liquidity, and risk sentiment
+Deterministic regime inference and cross-asset mapping
         ↓
-Macro-regime inference and cross-asset research report
+Cross-asset research report
 ```
 
 ## Semantic theme and macro mapping
