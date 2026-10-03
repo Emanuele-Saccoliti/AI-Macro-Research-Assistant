@@ -1,6 +1,11 @@
 # AI-powered Macro Research Agent
 
-AI-powered macro research pipeline that combines LLM-based financial news processing with machine learning to identify and classify emerging themes across growth, inflation, monetary policy, liquidity, and risk sentiment. These insights are then aggregated into dynamic state variables for macro-regime monitoring and cross-asset analysis.
+This repository provides an AI research harness that constrains LLM-based interpretation within a deterministic, transparent, and traceable framework.
+
+Starting from a macro question, the system expands it into fixed research perspectives, retrieves relevant news, uses an LLM to normalize heterogeneous evidence into structured events, discovers emergent themes through embeddings and clustering, maps those themes into a five-dimensional macro state, infers a macro regime through explicit rules, and derives conditional cross-asset implications using inspectable research weights.
+
+The LLM is used for bounded semantic tasks, primarily event normalization and final report narration. Query planning, retrieval, schemas, clustering, theme aggregation, macro scoring, regime classification, and cross-asset mapping are implemented as explicit, inspectable Python logic.
+
 
 ## Pipeline
 
@@ -20,19 +25,32 @@ Multi-label mapping to growth, inflation, policy, liquidity, and risk sentiment
 Macro-regime inference and cross-asset research report
 ```
 
-## What Is Dynamic
+## Semantic theme and macro mapping
 
-- The number of themes is not fixed in advance. Agglomerative clustering discovers groups from the current event set.
-- Theme IDs are matched to historical cluster centroids, allowing narratives to be followed across runs.
-- Attention measures the current share of deduplicated events assigned to a theme.
-- Momentum compares current attention with the theme's historical distribution.
-- Breadth measures coverage and diversity across independent sources.
-- Novelty measures semantic distance from historical theme centroids.
-- Persistence measures how frequently a matched theme remains active across recent runs.
+Each normalized event is embedded into a numeric semantic representation. `AgglomerativeClustering` groups related event embeddings without requiring a predefined set of themes.
 
-## Macro Mapping
+```text
+Normalized events
+        ↓
+Event embeddings
+        ↓
+Semantic clustering
+        ↓
+Emergent themes
+        ↓
+Theme centroid embedding
+        ↓
+Comparison with ten semantic anchor prototypes
+(five macro axes × two opposing poles)
+        ↓
+Five macro scores per theme
+        ↓
+One MacroAxisVector per theme
+```
 
-Each theme is mapped to a continuous macro vector:
+The five macro axes are growth, inflation, policy, liquidity, and risk sentiment. For each axis, the theme centroid is compared with positive and negative textual anchors using cosine similarity. The relative similarity and strength of the evidence produce a continuous score between -1 and +1.
+
+Visually:
 
 ```text
 Growth:         contraction -1 ←→ +1 expansion
@@ -42,7 +60,40 @@ Liquidity:      contraction -1 ←→ +1 expansion
 Risk sentiment: risk-off -1 ←→ +1 risk-on
 ```
 
+The anchor prototypes are transparent research priors, not trained classifier parameters. This makes their assumptions directly inspectable and replaceable with supervised models when reviewed labelled data becomes available.
+
 The default implementation uses semantic anchor prototypes. It is intentionally replaceable with a supervised multi-label classifier once a reviewed training set is available.
+
+
+## Macro-state aggregation and regime inference
+
+Theme-level macro vectors are aggregated using transparent weights informed by attention, breadth, mapping confidence, and momentum.
+
+```text
+Theme-level macro vectors
+        ↓
+Weighted aggregation
+        ↓
+Aggregate five-dimensional macro state
+        ↓
+Explicit threshold and rule evaluation
+        ↓
+One inferred macro regime
+        ↓
+Cross-asset implication scores
+```
+
+The current regime taxonomy includes:
+
+* `goldilocks`: positive growth and falling inflation. A scenario that is generally supportive of risk assets and duration.
+* `reflation`: positive growth and positive inflation. The economy is accelerating, but inflationary pressure is also increasing.
+* `stagflation_pressure`: weak or negative growth combined with elevated inflation. This is an unfavourable macroeconomic combination.
+* `recession_disinflation`: weak or negative growth and falling inflation. It indicates an economic slowdown or recession alongside disinflation.
+* `policy_tightening`: growth and inflation do not produce one of the four core regimes, but the policy component indicates materially tighter monetary conditions.
+* `policy_easing`: analogous to `policy_tightening`, but with a strong indication of monetary easing.
+* `risk_off`: no preceding regime dominates, but risk sentiment is clearly negative.
+* `mixed_transition`: an ambiguous, neutral, or transitional state, without signals strong enough to satisfy the other rules.
+
 
 ## Project Structure
 
@@ -68,7 +119,6 @@ The default implementation uses semantic anchor prototypes. It is intentionally 
 Run the following commands from the `v2/` directory.
 
 ```bash
-cd v2
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
@@ -129,10 +179,8 @@ pytest
 
 ## Limitations
 
-- Prototype-based macro mapping is a semantic baseline, not a trained alpha model.
-- Cross-asset coefficients encode transparent research priors and require historical validation.
-- Search snippets may omit context or publication timestamps.
-- More advanced regime research should combine narrative features with structured macro and market data.
+This is a research prototype rather than a production-grade forecasting or investment system. Several deterministic components, including semantic anchors, thresholds, and asset weights, are intentionally transparent research heuristics that remain open to historical calibration and validation.
+
 
 ## Disclaimer
 
