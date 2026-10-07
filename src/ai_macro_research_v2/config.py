@@ -18,7 +18,7 @@ class Settings(BaseSettings):
         validation_alias="REQUEST_TIMEOUT_SECONDS",
     )
 
-    max_articles: int = Field(default=30, ge=3, le=100, validation_alias="MAX_ARTICLES")
+    max_articles: int = Field(default=30, ge=1, le=100, validation_alias="MAX_ARTICLES")
     output_dir: Path = Field(default=Path("reports"), validation_alias="OUTPUT_DIR")
 
     embedding_provider: Literal["hashing", "sentence-transformer"] = Field(

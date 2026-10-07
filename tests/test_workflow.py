@@ -1,4 +1,7 @@
 from pathlib import Path
+from unittest.mock import Mock
+
+import pytest
 
 from ai_macro_research_v2.config import Settings
 from ai_macro_research_v2.embeddings import HashingEmbedder
@@ -46,6 +49,24 @@ class FakeNarrator:
             key_findings=["Themes were discovered."],
             risks_to_watch=["Synthetic input."],
         )
+
+
+@pytest.mark.parametrize("value", [-1, 0, 101])
+def test_workflow_rejects_invalid_max_articles_before_retrieval(value):
+    retriever = Mock(max_articles=4)
+    workflow = DynamicMacroResearchWorkflow(
+        Settings(max_articles=4, _env_file=None),
+        retriever=retriever,
+        normalizer=FakeNormalizer(),
+        narrator=FakeNarrator(),
+        embedder=HashingEmbedder(dimensions=128),
+    )
+
+    with pytest.raises(ValueError, match="max_articles must be between 1 and 100"):
+        workflow.run("test query", max_articles=value, use_history=False)
+
+    retriever.retrieve.assert_not_called()
+    assert workflow.retriever is retriever
 
 
 def test_workflow_runs_without_web_or_llm(tmp_path):

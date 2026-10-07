@@ -8,13 +8,23 @@ from ai_macro_research_v2.config import get_settings
 from ai_macro_research_v2.workflow import DynamicMacroResearchWorkflow
 
 
+def parse_max_articles(value: str) -> int:
+    try:
+        max_articles = int(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("--max-articles must be between 1 and 100") from exc
+    if not 1 <= max_articles <= 100:
+        raise argparse.ArgumentTypeError("--max-articles must be between 1 and 100")
+    return max_articles
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="macro-research-extension",
         description="Discover dynamic macro themes, infer regimes, and generate research reports.",
     )
     parser.add_argument("query", nargs="?", help="Macro research question or mandate.")
-    parser.add_argument("--max-articles", type=int, default=None)
+    parser.add_argument("--max-articles", type=parse_max_articles, default=None)
     parser.add_argument("--feed-url", action="append", default=[])
     parser.add_argument("--output-dir", type=Path, default=None)
     parser.add_argument("--format", choices=["markdown", "json", "both"], default="both")

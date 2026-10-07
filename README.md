@@ -120,7 +120,7 @@ The current regime taxonomy includes:
 
 ## Setup
 
-Run the following commands from the `v2/` directory.
+Run the following commands from the repository root, where `pyproject.toml` is located.
 
 ```bash
 python3 -m venv .venv
@@ -150,6 +150,9 @@ python -m ai_macro_research_v2 \
   "US inflation, Fed policy and cross-asset implications" \
   --max-articles 30
 ```
+
+`--max-articles` accepts integers from 1 to 100 (inclusive). Invalid values are
+rejected before research starts. When omitted, `MAX_ARTICLES` applies (default: 30).
 
 Add RSS sources:
 

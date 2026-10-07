@@ -50,8 +50,11 @@ class DynamicMacroResearchWorkflow:
         max_articles: int | None = None,
         use_history: bool = True,
     ) -> DynamicResearchReport:
-        if max_articles and max_articles != self.retriever.max_articles:
-            self.retriever = MacroNewsRetriever(max_articles)
+        if max_articles is not None:
+            if not 1 <= max_articles <= 100:
+                raise ValueError("max_articles must be between 1 and 100")
+            if max_articles != self.retriever.max_articles:
+                self.retriever = MacroNewsRetriever(max_articles)
 
         observed_at = datetime.now(UTC)
         retrieval = self.retriever.retrieve(query, feed_urls=feed_urls)
